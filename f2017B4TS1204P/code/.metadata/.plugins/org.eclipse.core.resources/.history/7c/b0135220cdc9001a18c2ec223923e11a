@@ -1,0 +1,38 @@
+package multiplayer_game;
+import java.io.*;
+
+public class Driver {
+public static void main(String args[])
+{  
+	InputStreamReader isr =new InputStreamReader(System.in);
+	BufferedReader br= new BufferedReader(isr) ;
+	try {
+	String name = br.readLine();
+	System.out.println(name);
+	}
+	catch(Exception e) {}
+	
+	Moderator m=new Moderator();
+	Players p1=new Players(1);
+	Players p2=new Players(2);
+	Players p3=new Players(3);
+	Players p4=new Players(4);
+	Players p5=new Players(5);
+	System.out.println(p1.tokens);
+	System.out.println(p2.tokens);
+	System.out.println(p3.tokens);
+	System.out.println(p4.tokens);
+	System.out.println(p5.tokens);
+	
+
+
+m.start();
+p1.start();
+p2.start();
+p3.start();
+p4.start();
+p5.start();
+
+
+}
+}

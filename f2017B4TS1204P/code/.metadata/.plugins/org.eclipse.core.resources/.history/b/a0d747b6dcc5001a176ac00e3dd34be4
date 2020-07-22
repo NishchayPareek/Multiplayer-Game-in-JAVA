@@ -1,0 +1,29 @@
+package multiplayer_game;
+import java.util.*;
+public class Moderator implements Runnable{
+ static ArrayList<Integer> generated_numbers;
+	public Moderator()
+ {
+	 generated_numbers=new ArrayList<Integer>();
+ }	
+ public void run()
+{
+	Random r=new Random();
+	 int no=r.nextInt(51);
+	 populate_list(no);
+	System.out.println("Moderator generated:"+no);
+	try {
+		//sleep(1000);
+	}
+	catch(Exception e)
+	{}
+}
+void populate_list(int a)
+{
+generated_numbers.add(a);	
+}
+//ArrayList<Integer>getList()
+//{
+//	return generated_numbers;
+//}
+}

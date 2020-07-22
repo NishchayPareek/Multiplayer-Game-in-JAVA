@@ -1,0 +1,25 @@
+package multiplayer_game;
+import java.util.*;
+
+public class Players implements Runnable {
+
+ArrayList<Integer> tokens=new ArrayList<Integer>();
+HashMap<Integer, Integer>map=new HashMap<>(); 
+public Players()
+{
+	Random r=new Random();
+	for(int i=0;i<10;++i)
+		tokens.add(r.nextInt(51));
+}
+public void run()
+{
+int a=Moderator.generated_numbers.get(Moderator.generated_numbers.size()-1);
+if(map.containsKey(a))
+{
+	int x=map.get(a);
+	map.put(a,x+1);
+}
+else
+	map.put(a, 1);
+}
+}

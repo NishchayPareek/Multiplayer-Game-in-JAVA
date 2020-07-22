@@ -1,0 +1,35 @@
+package multiplayer_game;
+import java.util.*;
+public class Generator{
+	ArrayList<Integer> generated_numbers;
+	//boolean flag=false;
+	int count=0;
+	int arr[]=new int[10];
+	public Generator(int n)
+	{   this.n=n;
+	   for(int i=0;i<n;++i)
+		   arr[i]=0;
+		generated_numbers=new ArrayList<Integer>();
+	   
+	}
+	public synchronized void add(int number) {
+	      while (count==5) {
+	         try {
+	            wait();
+	         } catch (InterruptedException e) { } 
+	      }
+	      generated_numbers.add(number);
+	      count = 5;
+	      notifyAll();
+	   }
+	public synchronized int read() {
+	      while (count==0) {
+	         try {
+	            wait();
+	         } catch (InterruptedException e) {}
+	      }
+	      count=count-1;
+	      notifyAll();
+	      return generated_numbers.get(generated_numbers.size()-1);
+	   }
+}

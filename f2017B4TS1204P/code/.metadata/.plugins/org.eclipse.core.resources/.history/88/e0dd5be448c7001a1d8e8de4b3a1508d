@@ -1,0 +1,57 @@
+package multiplayer_game;
+import java.util.*;
+
+public class Players extends Thread {
+int count=0;
+boolean flag=false;
+ArrayList<Integer> tokens=new ArrayList<Integer>();
+HashMap<Integer, Integer>map=new HashMap<>(); 
+private Generator generate;
+int number;
+public Players(Generator generate,int number)
+{ this.generate=generate;
+  this.number=number;	
+Random r=new Random();
+	for(int i=0;i<10;++i)
+	{	int a=r.nextInt(20);
+	   tokens.add(a);  
+	if(map.containsKey(a))
+	{
+		int x=map.get(a);
+		map.put(a,x+1);
+	}
+	else
+		map.put(a, 1);
+	}
+}
+public void run()
+{
+	int value=0;
+    for (int i=0;i<10;i++) 
+    {
+//       if(flag==true)
+//       {
+//    	   try {
+//	             sleep(500);
+//	          } catch (InterruptedException e) { } 
+//
+//       }
+    	value = generate.read();
+          flag=true;       
+       System.out.println("Player no."+number+"read"+value);
+     //  System.out.println("count="+count);
+
+if(map.containsKey(value)&&map.get(value)>0)
+{count=count+1;
+if(count==3)
+{	System.out.println("Player no."+number+"won");
+  System.exit(0);
+}
+int x=map.get(value);
+map.put(value,x-1);
+}
+  }
+}
+
+}
+

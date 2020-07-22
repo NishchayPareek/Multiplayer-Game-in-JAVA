@@ -1,0 +1,25 @@
+package multiplayer_game;
+import java.util.*;
+public class Moderator extends Thread{
+ private Generator generate;	
+ public Moderator(Generator generate)
+ {
+	 this.generate=generate;
+ }	
+ public void run()
+{
+	Random r=new Random();
+	for(int i=0;i<10;++i)
+	{
+	int no=r.nextInt(20);
+	generate.add(no);
+	System.out.println("Moderator Generated:"+no);
+    try{
+       sleep(3000);
+    } catch (InterruptedException e) { }
+	}
+	System.out.println("Nobody won");
+}
+
+
+}

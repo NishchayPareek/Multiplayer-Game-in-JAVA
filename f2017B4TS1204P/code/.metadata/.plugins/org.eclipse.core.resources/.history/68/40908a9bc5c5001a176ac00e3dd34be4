@@ -1,0 +1,18 @@
+package multiplayer_game;
+import java.util.*;
+public class Moderator {
+ ArrayList<Integer> generated_numbers;
+	public Moderator()
+ {
+	 generated_numbers=new ArrayList<Integer>();
+ }	
+ int generate()
+{
+	Random r=new Random();
+	return r.nextInt(51);
+}
+void populate_list(int a)
+{
+generated_numbers.add(a);	
+}
+}

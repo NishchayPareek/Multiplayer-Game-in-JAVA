@@ -1,0 +1,15 @@
+package multiplayer_game;
+
+public class Driver {
+public static void main(String args[])
+{
+	Moderator m=new Moderator();
+	Players p=new Players();
+	Thread t=new Thread(p);
+	t.start();
+	for(int i=0;i<10;++i)
+	{
+		System.out.println("The moderator generated:"+m.generate());
+	}
+
+}

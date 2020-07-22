@@ -1,0 +1,37 @@
+package multiplayer_game;
+
+import java.util.Scanner;
+
+public class Driver {
+public static void main(String args[])
+{  
+   Scanner sc = new Scanner(System.in);
+	for(int i=0;i<5;++i)
+	{String s=sc.nextLine();
+		System.out.println(s);
+	}
+	
+	Moderator m=new Moderator();
+	Players p1=new Players(1);
+	Players p2=new Players(2);
+	Players p3=new Players(3);
+	Players p4=new Players(4);
+	Players p5=new Players(5);
+	System.out.println(p1.tokens);
+	System.out.println(p2.tokens);
+	System.out.println(p3.tokens);
+	System.out.println(p4.tokens);
+	System.out.println(p5.tokens);
+	
+
+
+m.start();
+p1.start();
+p2.start();
+p3.start();
+p4.start();
+p5.start();
+
+
+}
+}

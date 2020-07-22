@@ -1,0 +1,15 @@
+package multiplayer_game;
+import java.util.*;
+
+public class Players {
+ArrayList<Integer> pl;
+public Players()
+{
+	pl=new ArrayList<Integer>();
+}
+void populate()
+{    Random r=new Random();
+	for(int i=0;i<10;++i)
+		pl.add(r.nextInt(51));
+}
+}

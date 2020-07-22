@@ -1,0 +1,9 @@
+package multiplayer_game;
+
+public class Players {
+int n;
+Players(int n)
+{
+	this.n=n;
+}
+}

@@ -1,0 +1,31 @@
+package multiplayer_game;
+import java.util.*;
+public class Driver {
+public static void main(String args[])
+{
+	Moderator m=new Moderator();
+	Players p1=new Players();
+	Players p2=new Players();
+	System.out.println(p1.tokens);
+	System.out.println(p2.tokens);
+	Thread t1=new Thread(p1);
+	Thread t2=new Thread(p2);
+	t1.start();
+	t2.start();
+	for(int i=0;i<10;++i)
+	{
+		m.generate();
+	}
+
+System.out.println(Moderator.generated_numbers);
+	for (Map.Entry<Integer,Integer> mapElement : p1.map.entrySet()) { 
+        int key =mapElement.getKey(); 
+
+        // Add some bonus marks 
+        // to all the students and print it 
+        int value = mapElement.getValue(); 
+
+        System.out.println(key + " : " + value); 
+    } 
+}
+}
